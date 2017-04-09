@@ -47,26 +47,36 @@
 // iteratorResult = iterator.next(192); // this will be passed as parameter to function print() inside of generator() function
 // console.log(iteratorResult); // Object {value: undefined, done: true}
 
-function* generator(a) {
-    let b = 5 * (yield (a + 5));
-    console.log('b:', b); // 40
+// function* generator(a) {
+//     let b = 5 * (yield (a + 5));
+//     console.log('b:', b); // 40
 
-    let c = yield (b / 10);
-    console.log('c:', c); // 4
+//     let c = yield (b / 10);
+//     console.log('c:', c); // 4
 
-    let total = a + b + c;
-    yield total / 2;
+//     let total = a + b + c;
+//     yield total / 2;
 
-    console.log('a + b + c:', total); // 50
+//     console.log('a + b + c:', total); // 50
+// }
+
+// let it = generator(6);
+
+// // we do not send anything into next() because it gets ignored during first time
+// console.log(it.next());   // {value: 11, done: false}
+
+// console.log(it.next(8));  // {value: 4, done: false}
+
+// console.log(it.next(4));  // {value: 25, done: false}
+
+// console.log(it.next(10)); // {value: undefined, done: true}
+
+function* generator() { 
+    let a = 5 - (yield 3);
+    console.log('a:', a);
 }
 
-let it = generator(6);
+let iterator = generator();
 
-// we do not send anything into next() because it gets ignored during first time
-console.log(it.next());   // {value: 11, done: false}
-
-console.log(it.next(8));  // {value: 4, done: false}
-
-console.log(it.next(4));  // {value: 25, done: false}
-
-console.log(it.next(10)); // {value: undefined, done: true}
+console.log(iterator.next()); 
+console.log(iterator.next(1));
