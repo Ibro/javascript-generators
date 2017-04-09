@@ -3,13 +3,23 @@ function* simpleGenerator() {
     yield 4;
 }
 
+// let iterator = simpleGenerator();
+
+// let iteratorResult = iterator.next();
+// console.log(iteratorResult);
+
+// iteratorResult = iterator.next();
+// console.log(iteratorResult);
+
+// iteratorResult = iterator.next();
+// console.log(iteratorResult);
+
+
 let iterator = simpleGenerator();
 
-let iteratorResult = iterator.next();
-console.log(iteratorResult);
+let iteratorResult;
 
-iteratorResult = iterator.next();
-console.log(iteratorResult);
-
-iteratorResult = iterator.next();
-console.log(iteratorResult);
+do {
+    iteratorResult = iterator.next();
+    console.log(iteratorResult);
+} while (!iteratorResult.done);
