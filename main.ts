@@ -23,3 +23,8 @@ do {
     iteratorResult = iterator.next();
     console.log(iteratorResult);
 } while (!iteratorResult.done);
+
+
+for (let value of simpleGenerator()) {
+    console.log(value);
+}
